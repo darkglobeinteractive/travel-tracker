@@ -1,6 +1,7 @@
 import { TRIP_FETCHED } from './types';
 import loadComplete from './loadComplete';
 import fetchTravelDate from './fetchTravelDate';
+import populateTravelDates from './populateTravelDates';
 import ZerodegreesK from '../apis/zerodegreesk';
 
 // The fetchTrip action creator with fetch the basic trip information as well as the trip dates array
@@ -30,8 +31,32 @@ const fetchTrip = () => async (dispatch, getState) => {
     }
   });
 
-  // Call the fetchTravelDate action creator for each ID in the travel dates array
-  processTravelDates(trip_dates_ids);
+  // Call the /posts/ endpoint using the 'include' parameter which is a string of comma-separated IDs to request
+  ZerodegreesK.get('/posts/',{
+    params: {
+      include: trip_dates_ids.join(),
+      per_page: 100,
+      _fields: 'id,title'
+    }
+  }).then((res) => {
+
+    // Create an array of objects including the necessary information for each travel date
+    const travel_dates = res.data.map(date => {
+      return {
+        id: date.id,
+        title: date.title.rendered
+      }
+    });
+
+    // Dispatch the populateTravelDates action creator to populate the travel_dates state object
+    dispatch(populateTravelDates(travel_dates));
+
+  }).then(() => {
+
+    // Finally, dispatch the loadComplete action creator to indicate that the app is ready to go
+    dispatch(loadComplete());
+    
+  });
 
 }
 
