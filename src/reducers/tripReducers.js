@@ -3,6 +3,7 @@ import { TRIP_FETCHED } from '../actions/types';
 const INITIAL_DATA = {
   title: '',
   link: '',
+  content: '',
   dates: []
 }
 

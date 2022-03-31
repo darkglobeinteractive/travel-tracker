@@ -17,15 +17,6 @@ class App extends Component {
     this.props.fetchTrip();
   }
 
-  // This helper will load the menu button once all dates have been added to the travel_dates state object
-  renderMenu = () => {
-    if (this.props.load_complete) {
-      return <div><button onClick={() => this.props.selectDate(350)}>SelectDate</button></div>;
-    } else {
-      return <></>;
-    }
-  }
-
   // When app_ready is true it means the active_date travel date has been loaded and we can populate the body content area with the latest date
   renderTravelDate = () => {
     if (this.props.load_complete) {
@@ -38,10 +29,9 @@ class App extends Component {
   render() {
     return (
       <div id="page">
-        <Header />
+        <Header show_menu={this.props.load_complete} />
         <TravelDateList />
         {this.renderTravelDate()}
-        {this.renderMenu()}
         <Footer />
       </div>
     );

@@ -1,10 +1,10 @@
-import { APP_READY, LOAD_COMPLETE, SELECT_DATE, TRIP_FETCHED } from '../actions/types';
+import { APP_READY, LOAD_COMPLETE, SELECT_DATE, TOGGLE_MENU, TRIP_FETCHED } from '../actions/types';
 
 const INITIAL_STATE = {
-  active_date: null,
+  active_date: null, // Determines the date to be shown
   app_ready: false,
-  load_complete: false
-
+  load_complete: false, // Determines when the app is finished fetching the required travel date info
+  show_menu: false // Determines whether or not the menu is open
 }
 
 export default (globalState = INITIAL_STATE, action) => {
@@ -15,7 +15,7 @@ export default (globalState = INITIAL_STATE, action) => {
 
   // If we are selecting a new date, we are setting the active_date ID
   } else if (action.type === SELECT_DATE) {
-    return {...globalState, active_date: action.payload};
+    return {...globalState, active_date: action.payload, show_menu: false};
 
   // This will be triggered when the active_date ID matches a travel date ID added in /actions/fetchTravelDate.js
   // This value is used to indicate that we can immediate start fetching the date to show on the page
@@ -27,9 +27,14 @@ export default (globalState = INITIAL_STATE, action) => {
   } else if (action.type === LOAD_COMPLETE) {
     return {...globalState, load_complete: true};
 
+  // The menu button in the header is toggling the Travel Date List open/closed
+  } else if (action.type === TOGGLE_MENU) {
+    const new_menu_state = (globalState.show_menu ? false : true);
+    return {...globalState, show_menu: new_menu_state};
+
   // Else initial state
   } else {
     return globalState;
   }
-  
+
 }

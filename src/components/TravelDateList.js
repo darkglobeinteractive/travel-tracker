@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TravelDateListItem from './TravelDateListItem';
 
-const TravelDateList = ({ travel_dates }) => {
+const TravelDateList = ({ show_menu, travel_dates }) => {
 
   if (travel_dates.length === 0) {
     return (
@@ -10,7 +10,7 @@ const TravelDateList = ({ travel_dates }) => {
     );
   }
   return (
-    <div id="travel-date-list">
+    <div id="travel-date-list" className={show_menu ? `show` : ``}>
       <div className="wrap">
         <div className="list-container">
           {travel_dates.map((travel_date, index) => {
@@ -27,6 +27,7 @@ const TravelDateList = ({ travel_dates }) => {
 
 const mapStateToProps = state => {
   return {
+    show_menu: state.global.show_menu,
     travel_dates: state.travel_dates
   }
 }

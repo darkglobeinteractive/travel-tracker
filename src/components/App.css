@@ -8,3 +8,11 @@ h1, h2, h3 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* MENU LIST ---------------------------------------------------- */
+#travel-date-list {
+  display: none;
+}
+#travel-date-list.show {
+  display: block;
+}

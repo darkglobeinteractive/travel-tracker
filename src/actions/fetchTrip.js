@@ -26,6 +26,7 @@ const fetchTrip = () => async (dispatch, getState) => {
     type: TRIP_FETCHED,
     payload: {
       title: trip.data.title.rendered,
+      content: trip.data.content.rendered,
       link: trip.data.link,
       dates: trip_dates_ids
     }

@@ -6,6 +6,7 @@ export default (travel_dates = [], action) => {
   if (action.type === DATE_FETCHED) {
     return [...travel_dates, action.payload];
 
+  // Populage the travel_dates state object
   } else if (action.type === POPULATE_TRAVEL_DATES) {
     return action.payload;
 
