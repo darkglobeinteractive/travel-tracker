@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Spinner from './Spinner';
 import TravelDate from './TravelDate';
+import TravelDateList from './TravelDateList';
 
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
     return (
       <div id="page">
         <Header />
+        <TravelDateList />
         {this.renderTravelDate()}
         {this.renderMenu()}
         <Footer />

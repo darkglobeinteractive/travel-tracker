@@ -36,15 +36,20 @@ const fetchTrip = () => async (dispatch, getState) => {
     params: {
       include: trip_dates_ids.join(),
       per_page: 100,
-      _fields: 'id,title'
+      _fields: 'id, title.rendered, acf.content_tldr, start_end_dates, thumbnail_image, acf.travel_next_post, acf.travel_previous_post'
     }
   }).then((res) => {
-
+    console.log(res.data);
     // Create an array of objects including the necessary information for each travel date
     const travel_dates = res.data.map(date => {
       return {
         id: date.id,
-        title: date.title.rendered
+        title: date.title.rendered,
+        tldr: date.acf.content_tldr,
+        start_end_dates: date.start_end_dates,
+        thumbnail_image: date.thumbnail_image,
+        next_date: date.acf.travel_next_post,
+        prev_date: date.acf.travel_previous_post
       }
     });
 
@@ -55,7 +60,7 @@ const fetchTrip = () => async (dispatch, getState) => {
 
     // Finally, dispatch the loadComplete action creator to indicate that the app is ready to go
     dispatch(loadComplete());
-    
+
   });
 
 }
