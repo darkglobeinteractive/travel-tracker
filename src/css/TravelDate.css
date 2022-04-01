@@ -1,0 +1,23 @@
+#banner {
+  position: relative;
+  height: 0;
+  padding: 0 0 18.25%;
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (min-width: 2000px) {
+  #banner {
+    height: 350px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #banner {
+    height: 160px;
+    padding: 0;
+  }
+}

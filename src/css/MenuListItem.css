@@ -1,0 +1,39 @@
+.menu-list-item,
+.menu-list-item * {
+  box-sizing: border-box;
+}
+.menu-list-item {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.menu-list-item + .menu-list-item {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+.menu-list-item .info {
+  width: calc(100% - 300px);
+  padding-right: 20px;
+}
+.menu-list-item .info .title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.menu-list-item .info .dates { }
+.menu-list-item .info .excerpt {
+  padding-top: 10px;
+  font-size: 16px;
+  line-height: 1.25em;
+}
+.menu-list-item .info .button {
+  padding-top: 10px;
+}
+.menu-list-item .info .button button { }
+.menu-list-item .image {
+  width: 300px;
+}
+.menu-list-item .image img {
+  display: block;
+  height: auto;
+  width: 100%;
+}

@@ -1,18 +1,10 @@
 import { TRIP_FETCHED } from './types';
 import loadComplete from './loadComplete';
-import fetchTravelDate from './fetchTravelDate';
 import populateTravelDates from './populateTravelDates';
 import ZerodegreesK from '../apis/zerodegreesk';
 
 // The fetchTrip action creator with fetch the basic trip information as well as the trip dates array
 const fetchTrip = () => async (dispatch, getState) => {
-
-  async function processTravelDates(travel_date_ids) {
-    for (const date_id of travel_date_ids) {
-      await dispatch(fetchTravelDate(date_id, trip_dates_ids[0]));
-    }
-    dispatch(loadComplete());
-  }
 
   // Fetch trip information
   const trip = await ZerodegreesK.get('/trip/341',{});
@@ -37,10 +29,9 @@ const fetchTrip = () => async (dispatch, getState) => {
     params: {
       include: trip_dates_ids.join(),
       per_page: 100,
-      _fields: 'id, title.rendered, acf.content_tldr, start_end_dates, thumbnail_image, acf.travel_next_post, acf.travel_previous_post'
+      _fields: 'id, title.rendered, acf.content_tldr, start_end_dates, thumbnail_image, acf.travel_next_post, acf.travel_previous_post, banner_image, acf.header_horizontal_alignment, acf.header_vertical_alignment'
     }
   }).then((res) => {
-    console.log(res.data);
     // Create an array of objects including the necessary information for each travel date
     const travel_dates = res.data.map(date => {
       return {
@@ -49,6 +40,9 @@ const fetchTrip = () => async (dispatch, getState) => {
         tldr: date.acf.content_tldr,
         start_end_dates: date.start_end_dates,
         thumbnail_image: date.thumbnail_image,
+        banner_image: date.banner_image,
+        banner_align_horz: date.acf.header_horizontal_alignment,
+        banner_align_vert: date.acf.header_vertical_alignment,
         next_date: date.acf.travel_next_post,
         prev_date: date.acf.travel_previous_post
       }

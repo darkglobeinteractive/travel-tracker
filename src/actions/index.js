@@ -1,5 +1,4 @@
 import fetchActiveDate from './fetchActiveDate';
-import fetchTravelDate from './fetchTravelDate';
 import fetchTrip from './fetchTrip';
 import populateTravelDates from './populateTravelDates';
 import readyCheck from './readyCheck';
@@ -8,7 +7,6 @@ import toggleMenu from './toggleMenu';
 
 export {
   fetchActiveDate,
-  fetchTravelDate,
   fetchTrip,
   populateTravelDates,
   readyCheck,

@@ -9,9 +9,9 @@ const Header = ({ show_menu, toggleMenu }) => {
   return (
     <div id="header">
       <div className="wrap">
-        <h1>0K Travel Tracker</h1>
+        <div className="site-title">0K Travel Tracker</div>
         {show_menu &&
-          <button onClick={() => toggleMenu()}>Menu</button>
+          <div className="menu-button"><button onClick={() => toggleMenu()}>Menu</button></div>
         }
       </div>
     </div>

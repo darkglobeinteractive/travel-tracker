@@ -6,16 +6,30 @@ body {
   padding: 20px;
   background-color: #ddd;
   font-size: 18px;
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 24px;
+}
+#page {
+  padding: 0 20px 20px;
+  background-color: #fff;
+}
+
+/* GOOGLE FONTS ------------------------------------------------- */
+body {
   font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-h1, h2, h3 {
+h1, h2, h3,
+#header .site-title {
   font-family: 'Orbitron', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-#page {
-  padding: 20px;
-  background-color: #fff;
 }

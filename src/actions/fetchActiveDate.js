@@ -5,9 +5,11 @@ const fetchActiveDate = id => async (dispatch, getState) => {
 
   const travelDateContent = await ZerodegreesK.get(`/posts/${id}`, {
     params: {
-      _fields: 'content.rendered'
+      // _fields: 'content.rendered'
     }
   });
+
+  console.log(travelDateContent);
 
   dispatch({
     type: DATE_FETCHED,

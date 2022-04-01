@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchActiveDate } from '../actions';
+import TravelDateBanner from './TravelDateBanner';
 import TravelDateContent from './TravelDateContent';
+import TravelDateImageGallery from './TravelDateImageGallery';
 import ZerodegreesK from '../apis/zerodegreesk';
 import '../css/TravelDate.css';
 
@@ -20,17 +22,20 @@ class TravelDate extends React.Component {
     const tldr = td.tldr;
     const date_next = td.next_date;
     const date_prev = td.prev_date;
+    const banner_img = td.banner_image;
+    const banner_align = td.banner_align_horz+' '+td.banner_align_vert;
 
     return (
       <div id="travel-date">
         <div className="wrap">
           <div className="standard-info">
+            <TravelDateBanner src={banner_img} align={banner_align} />
             <h1>{title}</h1>
             <div className="dates">{dates}</div>
             <div className="tldr">{tldr}</div>
             <TravelDateContent content={this.props.active_date.content} />
           </div>
-          <div>[[IMAGE GALLERY]]</div>
+          <TravelDateImageGallery />
           <div>[[VIDEOS]]</div>
           <div>[[PLACES]]</div>
         </div>
