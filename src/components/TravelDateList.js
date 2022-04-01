@@ -13,7 +13,7 @@ const TravelDateList = ({ show_menu, travel_dates }) => {
     <div id="travel-date-list" className={show_menu ? `show` : ``}>
       <div className="wrap">
         <div className="list-container">
-          {travel_dates.map((travel_date, index) => {
+          {travel_dates.reverse().map((travel_date, index) => {
             return (
               <TravelDateListItem key={index} travel_date={travel_date} />
             );
@@ -28,7 +28,7 @@ const TravelDateList = ({ show_menu, travel_dates }) => {
 const mapStateToProps = state => {
   return {
     show_menu: state.global.show_menu,
-    travel_dates: state.travel_dates
+    travel_dates: Object.values(state.travel_dates)
   }
 }
 
