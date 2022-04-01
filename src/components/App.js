@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectDate, fetchTrip } from '../actions/index';
 
-import './App.css';
+import '../css/App.css';
 import Header from './Header';
 import Footer from './Footer';
+import MenuList from './MenuList';
 import Spinner from './Spinner';
 import TravelDate from './TravelDate';
-import TravelDateList from './TravelDateList';
-
 
 class App extends Component {
 
@@ -30,7 +29,7 @@ class App extends Component {
     return (
       <div id="page">
         <Header show_menu={this.props.load_complete} />
-        <TravelDateList />
+        <MenuList />
         {this.renderTravelDate()}
         <Footer />
       </div>

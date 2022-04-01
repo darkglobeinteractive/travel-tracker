@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TravelDateListItem from './TravelDateListItem';
 
-const TravelDateList = ({ show_menu, travel_dates }) => {
+import '../css/MenuList.css';
+import MenuListItem from './MenuListItem';
+
+const MenuList = ({ show_menu, travel_dates }) => {
 
   if (travel_dates.length === 0) {
     return (
@@ -10,12 +12,12 @@ const TravelDateList = ({ show_menu, travel_dates }) => {
     );
   }
   return (
-    <div id="travel-date-list" className={show_menu ? `show` : ``}>
+    <div id="menu" className={show_menu ? `show` : ``}>
       <div className="wrap">
         <div className="list-container">
           {travel_dates.reverse().map((travel_date, index) => {
             return (
-              <TravelDateListItem key={index} travel_date={travel_date} />
+              <MenuListItem key={index} travel_date={travel_date} />
             );
           })}
         </div>
@@ -32,4 +34,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {})(TravelDateList);
+export default connect(mapStateToProps, {})(MenuList);

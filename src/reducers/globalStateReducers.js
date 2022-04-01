@@ -2,7 +2,6 @@ import { APP_READY, LOAD_COMPLETE, SELECT_DATE, TOGGLE_MENU, TRIP_FETCHED } from
 
 const INITIAL_STATE = {
   active_date: null, // Determines the date to be shown
-  app_ready: false,
   load_complete: false, // Determines when the app is finished fetching the required travel date info
   show_menu: false // Determines whether or not the menu is open
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleMenu } from '../actions';
+import '../css/Header.css';
 
 const Header = ({ show_menu, toggleMenu }) => {
 
