@@ -6,13 +6,13 @@ const Footer = props => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div id="header">
+    <div id="footer">
       <div className="wrap">
         <div className="copyright">&copy; {currentYear} 0degreesK.com</div>
       </div>
     </div>
   );
-  
+
 }
 
 export default Footer;

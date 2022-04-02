@@ -9,9 +9,10 @@ class TravelDateImageGallery extends React.Component {
 
     if (Object.keys(this.props.items).length === 0) {
       return (
-        <div>[[NO IMAGES TO BE FOUND]]</div>
+        <></>
       );
     }
+
     return (
       <div className="expander image-gallery">
         <div className="expander-header">

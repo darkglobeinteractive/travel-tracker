@@ -8,7 +8,7 @@ class TravelDateVideoGallery extends React.Component {
   render() {
     if (Object.keys(this.props.items).length === 0) {
       return (
-        <div>[[NO VIDEOS TO BE FOUND]]</div>
+        <></>
       );
     }
     return (

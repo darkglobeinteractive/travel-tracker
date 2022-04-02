@@ -20,6 +20,10 @@ h3 {
   padding: 0 20px 20px;
   background-color: #fff;
 }
+#footer {
+  font-size: 14px;
+  text-align: center;
+}
 
 /* EXPANDER ----------------------------------------------------- */
 .expander,
@@ -41,6 +45,8 @@ h3 {
 .expander .expander-content .item {
   margin: 0 0 20px;
   padding: 0 10px;
+}
+.expander .expander-content .item.cols-1 {
   width: 25%;
 }
 .expander .expander-content .item.cols-2 {
@@ -64,12 +70,50 @@ h3 {
   color: #000;
   text-decoration: none;
 }
+.expander .expander-content .item.video-embed {
+  width: 50%;
+}
+.expander .expander-content .item.video-embed .image iframe {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
 .expander .expander-content .item .image {
+  position: relative;
   margin: 0 0 10px;
 }
 .expander .expander-content .item .image img {
   width: 100%;
   border: 1px solid #eee;
+}
+.expander .expander-content .item.video-embed .image {
+  height: 0;
+  padding-bottom: 56.25%;
+  background-color: #444;
+}
+.expander .expander-content .item .image.bg img {
+  display: none;
+}
+.expander .expander-content .item .image.bg {
+  height: 0;
+  padding-bottom: 75%;
+  background-color: #444;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.expander .expander-content .item.cols-2 .image.bg {
+  padding-bottom: 36.7%;
+}
+.expander .expander-content .item.cols-3 .image.bg {
+  padding-bottom: 24.3%;
+}
+.expander .expander-content .item.cols-4 .image.bg {
+  padding-bottom: 18.75%;
 }
 .expander .expander-content .item .info {}
 .expander .expander-content .item .info .title {
@@ -77,6 +121,66 @@ h3 {
 }
 .expander .expander-content .item .info .caption {
   margin-top: 10px;
+}
+
+@media screen and (max-width: 1600px) {
+
+  /* EXPANDER ----------------------------------------------------- */
+  .expander .expander-content .item.cols-1 {
+    width: 33.333%;
+  }
+  .expander .expander-content .item.cols-2 {
+    width: 66.666%;
+  }
+  .expander .expander-content .item.cols-3,
+  .expander .expander-content .item.cols-4 {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 1240px) {
+
+  /* EXPANDER ----------------------------------------------------- */
+  .expander .expander-content .item.cols-1 {
+    width: 50%;
+  }
+  .expander .expander-content .item.cols-2,
+  .expander .expander-content .item.cols-3,
+  .expander .expander-content .item.cols-4 {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+  /* EXPANDER ----------------------------------------------------- */
+  .expander .expander-content .item.video-embed {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  /* GLOBAL CSS --------------------------------------------------- */
+  body {
+    padding: 10px;
+  }
+  #page {
+    padding: 0 10px 10px;
+  }
+
+  /* EXPANDER ----------------------------------------------------- */
+  .expander .expander-content .item.cols-1,
+  .expander .expander-content .item.cols-2,
+  .expander .expander-content .item.cols-3,
+  .expander .expander-content .item.cols-4 {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+
 }
 
 /* GOOGLE FONTS ------------------------------------------------- */

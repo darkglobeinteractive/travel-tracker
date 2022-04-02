@@ -4,7 +4,7 @@ const TravelDateImagesItem = ({ image }) => {
   return (
     <div className={`item cols-${image.columns}`}>
       <a href={image.fullsize} target="_blank" className="wrap">
-        <span className="image">
+        <span className="image bg" style={{backgroundImage: `url(${image.thumbnail})`}}>
           <img src={image.thumbnail} alt={image.title} />
         </span>
         <span className="info">

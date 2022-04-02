@@ -2,10 +2,10 @@ import React from 'react';
 
 const TravelDateVideosItem = ({ video }) => {
   return (
-    <div className="item cols-2">
-      <a href={`https://vimeo.com/${video.id}`} target="_blank" className="wrap">
+    <div className="item video-embed">
+      <span className="wrap">
         <span className="image">
-          [[thumbnail]]
+          <iframe src={`https://player.vimeo.com/video/${video.id}?color=FFF&title=0&byline=0&portrait=0`} allow="autoplay; fullscreen"></iframe>
         </span>
         <span className="info">
           <span className="title">{video.title}</span>
@@ -13,7 +13,7 @@ const TravelDateVideosItem = ({ video }) => {
             <span className="caption">{video.caption}</span>
           }
         </span>
-      </a>
+      </span>
     </div>
   )
 }
