@@ -29,7 +29,7 @@ const fetchTrip = () => async (dispatch, getState) => {
     params: {
       include: trip_dates_ids.join(),
       per_page: 100,
-      _fields: 'id, title.rendered, acf.content_tldr, start_end_dates, thumbnail_image, acf.travel_next_post, acf.travel_previous_post, banner_image, acf.header_horizontal_alignment, acf.header_vertical_alignment'
+      _fields: 'acf.content_tldr, acf.header_horizontal_alignment, acf.header_vertical_alignment. acf.travel_next_post, acf.travel_previous_post, banner_image, id, start_end_dates, thumbnail_image, title.rendered'
     }
   }).then((res) => {
     // Create an array of objects including the necessary information for each travel date

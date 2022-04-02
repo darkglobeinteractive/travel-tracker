@@ -21,6 +21,64 @@ h3 {
   background-color: #fff;
 }
 
+/* EXPANDER ----------------------------------------------------- */
+.expander,
+.expander * {
+  box-sizing: border-box;
+}
+.expander { }
+.expander .expander-header { }
+.expander .expander-header .title { }
+.expander .expander-header .toggle { }
+.expander .expander-header .toggle button { }
+.expander .expander-content { }
+.expander .expander-content > .wrap {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  margin: 0 -10px;
+}
+.expander .expander-content .item {
+  margin: 0 0 20px;
+  padding: 0 10px;
+  width: 25%;
+}
+.expander .expander-content .item.cols-2 {
+  width: 50%;
+}
+.expander .expander-content .item.cols-3 {
+  width: 75%;
+}
+.expander .expander-content .item.cols-4 {
+  width: 100%;
+}
+.expander .expander-content .item > .wrap,
+.expander .expander-content .item .image,
+.expander .expander-content .item .image img,
+.expander .expander-content .item .info,
+.expander .expander-content .item .info .title,
+.expander .expander-content .item .info .caption {
+  display: block;
+}
+.expander .expander-content .item > .wrap {
+  color: #000;
+  text-decoration: none;
+}
+.expander .expander-content .item .image {
+  margin: 0 0 10px;
+}
+.expander .expander-content .item .image img {
+  width: 100%;
+  border: 1px solid #eee;
+}
+.expander .expander-content .item .info {}
+.expander .expander-content .item .info .title {
+  font-weight: 700;
+}
+.expander .expander-content .item .info .caption {
+  margin-top: 10px;
+}
+
 /* GOOGLE FONTS ------------------------------------------------- */
 body {
   font-family: 'Ubuntu', Arial, Helvetica, sans-serif;

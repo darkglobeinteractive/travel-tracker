@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectDate } from '../actions/index';
+
 import '../css/MenuListItem.css';
 
 class MenuListItem extends React.Component {

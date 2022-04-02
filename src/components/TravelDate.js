@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchActiveDate } from '../actions';
+
+import '../css/TravelDate.css';
 import TravelDateBanner from './TravelDateBanner';
 import TravelDateContent from './TravelDateContent';
-import TravelDateImageGallery from './TravelDateImageGallery';
-import ZerodegreesK from '../apis/zerodegreesk';
-import '../css/TravelDate.css';
+import TravelDateImages from './TravelDateImages';
+import TravelDateVideos from './TravelDateVideos';
+import TravelDatePlaces from './TravelDatePlaces';
 
 class TravelDate extends React.Component {
 
@@ -15,7 +17,7 @@ class TravelDate extends React.Component {
 
   render() {
 
-    // Set variables to make the JSX a bit cleaner
+    // Default travel date info stored in the travel_dates state object
     const td = this.props.travel_date;
     const title = td.title;
     const dates = td.start_end_dates;
@@ -25,19 +27,25 @@ class TravelDate extends React.Component {
     const banner_img = td.banner_image;
     const banner_align = td.banner_align_horz+' '+td.banner_align_vert;
 
+    // Recently fetched active_date state object info
+    const ad = this.props.active_date;
+    const full_content = ad.content;
+    const images = ad.images;
+    const videos = ad.videos;
+
     return (
       <div id="travel-date">
         <div className="wrap">
           <div className="standard-info">
             <TravelDateBanner src={banner_img} align={banner_align} />
-            <h1>{title}</h1>
+            <h1 dangerouslySetInnerHTML={{__html: title}} />
             <div className="dates">{dates}</div>
-            <div className="tldr">{tldr}</div>
-            <TravelDateContent content={this.props.active_date.content} />
+            <div className="tldr" dangerouslySetInnerHTML={{__html: tldr}} />
+            <TravelDateContent content={full_content} />
           </div>
-          <TravelDateImageGallery />
-          <div>[[VIDEOS]]</div>
-          <div>[[PLACES]]</div>
+          <TravelDateImages items={images} />
+          <TravelDateVideos items={videos} />
+          <TravelDatePlaces />
         </div>
       </div>
     );

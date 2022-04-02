@@ -3,7 +3,7 @@
 #header * {
   box-sizing: border-box;
 }
-#header .wrap {
+#header > .wrap {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -11,10 +11,10 @@
   width: 100%;
   padding: 20px 0;
 }
-#header .wrap > *:first-child {
+#header > .wrap > *:first-child {
   margin-top: 0;
 }
-#header .wrap > *:last-child {
+#header > .wrap > *:last-child {
   margin-bottom: 0;
 }
 #header .site-title {
