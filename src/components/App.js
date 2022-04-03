@@ -19,9 +19,9 @@ class App extends Component {
   // When app_ready is true it means the active_date travel date has been loaded and we can populate the body content area with the latest date
   renderTravelDate = () => {
     if (this.props.load_complete) {
-      return <TravelDate id={this.props.active_date} />;
+      return <TravelDate id={this.props.active_date} />
     } else {
-      return <Spinner />;
+      return <Spinner message="Loading Date" />
     }
   }
 

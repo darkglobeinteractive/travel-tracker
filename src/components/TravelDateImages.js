@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
+import Spinner from './Spinner';
 import TravelDateImagesItem from './TravelDateImagesItem';
 
 class TravelDateImageGallery extends React.Component {
@@ -8,9 +9,7 @@ class TravelDateImageGallery extends React.Component {
   render() {
 
     if (Object.keys(this.props.items).length === 0) {
-      return (
-        <></>
-      );
+      return <Spinner message="Loading Images" />
     }
 
     return (

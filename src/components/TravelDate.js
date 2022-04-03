@@ -15,6 +15,18 @@ class TravelDate extends React.Component {
     this.props.fetchActiveDate(this.props.id);
   }
 
+  renderImageGallery(images_check, images) {
+    if (images_check) {
+      return <TravelDateImages items={images} />
+    }
+  }
+
+  renderVideoGallery(videos_check, videos) {
+    if (videos_check) {
+      return <TravelDateVideos items={videos} />
+    }
+  }
+
   render() {
 
     // Default travel date info stored in the travel_dates state object
@@ -30,7 +42,9 @@ class TravelDate extends React.Component {
     // Recently fetched active_date state object info
     const ad = this.props.active_date;
     const full_content = ad.content;
+    const images_check = ad.images_check;
     const images = ad.images;
+    const videos_check = ad.videos_check;
     const videos = ad.videos;
 
     return (
@@ -43,8 +57,8 @@ class TravelDate extends React.Component {
             <div className="tldr" dangerouslySetInnerHTML={{__html: tldr}} />
             <TravelDateContent content={full_content} />
           </div>
-          <TravelDateImages items={images} />
-          <TravelDateVideos items={videos} />
+          {this.renderImageGallery(images_check, images)}
+          {this.renderVideoGallery(videos_check, videos)}
           <TravelDatePlaces />
         </div>
       </div>

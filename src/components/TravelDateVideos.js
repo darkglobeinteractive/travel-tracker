@@ -1,15 +1,14 @@
 import React from 'react';
 import _ from 'lodash';
 
+import Spinner from './Spinner';
 import TravelDateVideosItem from './TravelDateVideosItem';
 
 class TravelDateVideoGallery extends React.Component {
 
   render() {
     if (Object.keys(this.props.items).length === 0) {
-      return (
-        <></>
-      );
+      return <Spinner message="Loading Videos" />
     }
     return (
       <div className="expander video-gallery">

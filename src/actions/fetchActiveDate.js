@@ -10,14 +10,20 @@ const fetchActiveDate = id => async (dispatch, getState) => {
     }
   });
 
+  console.log(travelDateContent);
+
   // Add the content immediately so the visitor can begin reading while images and/or videos load
   dispatch({
     type: DATE_FETCHED,
-    payload: travelDateContent.data.content.rendered
+    payload: {
+      content: travelDateContent.data.content.rendered,
+      images_check: (travelDateContent.data.acf.image_gallery ? true : false),
+      videos_check: (travelDateContent.data.acf.video_gallery ? true : false)
+    }
   });
 
   // Check for image gallery items
-  if (travelDateContent.data.acf.image_gallery.length > 0) {
+  if (travelDateContent.data.acf.image_gallery) {
 
     // Create an keyed object from the image_gallery array
     const gallery_images = _.mapKeys(travelDateContent.data.acf.image_gallery.map(image => {
@@ -58,7 +64,7 @@ const fetchActiveDate = id => async (dispatch, getState) => {
   }
 
   // Check for video gallery items
-  if (travelDateContent.data.acf.video_gallery.length > 0) {
+  if (travelDateContent.data.acf.video_gallery) {
 
     // Create an keyed object from the image_gallery array
     const gallery_videos = _.mapKeys(travelDateContent.data.acf.video_gallery.map(video => {
