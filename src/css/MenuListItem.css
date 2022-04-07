@@ -1,3 +1,4 @@
+/* MENU LIST ITEM ----------------------------------------------- */
 .menu-list-item,
 .menu-list-item * {
   box-sizing: border-box;
@@ -6,9 +7,9 @@
   display: flex;
   flex-flow: row nowrap;
 }
-.menu-list-item + .menu-list-item {
-  margin-top: 10px;
-  padding-top: 10px;
+.menu-list-item {
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px solid #ddd;
 }
 .menu-list-item .info {
@@ -19,7 +20,11 @@
   font-size: 20px;
   font-weight: 700;
 }
-.menu-list-item .info .dates { }
+.menu-list-item .info .dates {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 700;
+}
 .menu-list-item .info .excerpt {
   padding-top: 10px;
   font-size: 16px;
@@ -28,7 +33,33 @@
 .menu-list-item .info .button {
   padding-top: 10px;
 }
-.menu-list-item .info .button button { }
+.menu-list-item .info .button button {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5em 1em;
+  border: none;
+  outline: none;
+  background: rgba(0,0,0,0.1);
+  color: #333;
+  font-size: 16px;
+  line-height: 1em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-transition: background ease-out 200ms, color ease-out 200ms;
+  -moz-transition: background ease-out 200ms, color ease-out 200ms;
+  -o-transition: background ease-out 200ms, color ease-out 200ms;
+  transition: background ease-out 200ms, color ease-out 200ms;
+}
+.menu-list-item .info .button button:hover {
+  background: rgba(0,0,0,0.4);
+  -webkit-transition: background ease-out 200ms, color ease-out 200ms;
+  -moz-transition: background ease-out 200ms, color ease-out 200ms;
+  -o-transition: background ease-out 200ms, color ease-out 200ms;
+  transition: background ease-out 200ms, color ease-out 200ms;
+}
 .menu-list-item .image {
   width: 300px;
 }
@@ -36,4 +67,19 @@
   display: block;
   height: auto;
   width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+
+  .menu-list-item {
+    flex-flow: column-reverse wrap;
+  }
+  .menu-list-item .info {
+    width: 100%;
+    padding: 15px 0 0;
+  }
+  .menu-list-item .image {
+    width: 100%;
+  }
+
 }

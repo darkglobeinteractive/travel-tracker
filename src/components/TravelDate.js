@@ -49,6 +49,7 @@ class TravelDate extends React.Component {
 
     return (
       <div id="travel-date">
+        <div className="mask-container"><div className="mask"></div></div>
         <div className="wrap">
           <div className="standard-info">
             <TravelDateBanner src={banner_img} align={banner_align} />

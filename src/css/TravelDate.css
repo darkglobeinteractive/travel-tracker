@@ -1,3 +1,44 @@
+/* TRAVEL DATE -------------------------------------------------- */
+#travel-date {
+  position: relative;
+  z-index: 1;
+}
+#travel-date .mask-container  {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+  left: -20px;
+  right: -20px;
+  top: 0;
+  height: auto;
+  max-height: 0;
+  -webkit-transition: max-height 0ms linear;
+  -moz-transition: max-height 0ms linear;
+  -o-transition: max-height 0ms linear;
+  transition: max-height 0ms linear;
+}
+.menu-open #travel-date .mask-container {
+  height: 100%;
+  max-height: 20000px;
+  -webkit-transition: max-height 1000ms linear;
+  -moz-transition: max-height 1000ms linear;
+  -o-transition: max-height 1000ms linear;
+  transition: max-height 1000ms linear;
+}
+#travel-date .mask-container .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255,255,255,0.5);
+}
+#travel-date > .wrap {
+  position: relative;
+  z-index: 1;
+}
+#travel-date .standard-info { }
 #banner {
   position: relative;
   height: 0;
@@ -7,17 +48,44 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+#travel-date h1 { }
+#travel-date .dates {
+  font-weight: 700;
+}
+#travel-date .tldr {
+  margin-top: 20px;
+}
+#travel-date .full-content { }
 
 @media screen and (min-width: 2000px) {
+
+  /* TRAVEL DATE -------------------------------------------------- */
   #banner {
     height: 350px;
     padding: 0;
   }
+
 }
 
 @media screen and (max-width: 950px) {
+
+  /* TRAVEL DATE -------------------------------------------------- */
   #banner {
     height: 160px;
     padding: 0;
   }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  /* TRAVEL DATE -------------------------------------------------- */
+  #travel-date::before {
+    left: -10px;
+    right: -10px;
+  }
+  #travel-date .tldr {
+    margin-top: 10px;
+  }
+
 }

@@ -1,7 +1,51 @@
 /* MENU LIST ---------------------------------------------------- */
 #menu {
-  display: none;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 80px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
 }
-#menu.show {
-  display: block;
+#menu .wrap {
+  max-height: 0;
+  padding: 0 20px;
+  -webkit-transition: max-height 200ms ease-in-out;
+  -moz-transition: max-height 200ms ease-in-out;
+  -o-transition: max-height 200ms ease-in-out;
+  transition: max-height 200ms ease-in-out;
+}
+.menu-open #menu .wrap {
+  max-height: 20000px;
+  -webkit-transition: max-height 500ms ease-in-out;
+  -moz-transition: max-height 500ms ease-in-out;
+  -o-transition: max-height 500ms ease-in-out;
+  transition: max-height 500ms ease-in-out;
+}
+#menu .wrap .trip-cta { }
+#menu .wrap .trip-cta > *:first-child {
+  margin-top: 0;
+}
+#menu .wrap .trip-cta > *:last-child {
+  margin-bottom: 0;
+}
+#menu .wrap .list-container {
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 500px) {
+
+  /* MENU LIST ---------------------------------------------------- */
+  #menu {
+    top: 60px;
+  }
+  #menu .wrap {
+    padding: 0 10px;
+  }
+  #menu .wrap .list-container {
+    padding-bottom: 10px;
+  }
+
 }

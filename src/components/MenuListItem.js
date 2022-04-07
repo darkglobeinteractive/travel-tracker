@@ -6,6 +6,11 @@ import '../css/MenuListItem.css';
 
 class MenuListItem extends React.Component {
 
+  thumbnailClick(e, id) {
+    e.preventDefault();
+    this.props.selectDate(id);
+  }
+
   render() {
 
     const info = this.props.travel_date;
@@ -19,7 +24,7 @@ class MenuListItem extends React.Component {
           <div className="button"><button onClick={() => this.props.selectDate(info.id)}>View Day</button></div>
         </div>
         <div className="image">
-          <img src={info.thumbnail_image} />
+          <a href="#" onClick={(e) => this.thumbnailClick(e, info.id)}><img src={info.thumbnail_image} /></a>
         </div>
       </div>
     );

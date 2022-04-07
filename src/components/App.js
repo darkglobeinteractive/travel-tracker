@@ -27,8 +27,8 @@ class App extends Component {
 
   render() {
     return (
-      <div id="page">
-        <Header show_menu={this.props.load_complete} />
+      <div id="page" className={`${this.props.menu_open ? `menu-open` : ``}`}>
+        <Header show_menu_button={this.props.load_complete} />
         <MenuList />
         {this.renderTravelDate()}
         <Footer />
@@ -41,7 +41,8 @@ const mapStateToProps = state => {
   return {
     active_date: state.global.active_date,
     app_ready: state.global.app_ready,
-    load_complete: state.global.load_complete
+    load_complete: state.global.load_complete,
+    menu_open: state.global.show_menu
   }
 }
 export default connect(mapStateToProps, { fetchTrip, selectDate })(App);

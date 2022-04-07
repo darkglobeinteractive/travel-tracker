@@ -8,15 +8,19 @@ body {
   font-size: 18px;
 }
 h1 {
+  margin: 20px 0;
   font-size: 32px;
 }
 h2 {
+  margin: 16px 0;
   font-size: 28px;
 }
 h3 {
+  margin: 16px 0;
   font-size: 24px;
 }
 #page {
+  position: relative;
   padding: 0 20px 20px;
   background-color: #fff;
 }
@@ -30,10 +34,25 @@ h3 {
 .expander * {
   box-sizing: border-box;
 }
-.expander { }
+.expander {
+  position: relative;
+  padding-top: 20px;
+}
+.expander::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -20px;
+  right: -20px;
+  top: 0;
+  height: 20px;
+  background-color: #ddd;
+}
 .expander .expander-header { }
 .expander .expander-header .title { }
-.expander .expander-header .toggle { }
+.expander .expander-header .toggle {
+  display: none;
+}
 .expander .expander-header .toggle button { }
 .expander .expander-content { }
 .expander .expander-content > .wrap {
@@ -168,11 +187,22 @@ h3 {
   body {
     padding: 10px;
   }
+  h1 {
+    margin: 10px 0;
+  }
   #page {
     padding: 0 10px 10px;
   }
 
   /* EXPANDER ----------------------------------------------------- */
+  .expander {
+    padding-top: 10px;
+  }
+  .expander::before {
+    left: -10px;
+    right: -10px;
+    height: 10px;
+  }
   .expander .expander-content .item.cols-1,
   .expander .expander-content .item.cols-2,
   .expander .expander-content .item.cols-3,
