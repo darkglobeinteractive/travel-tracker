@@ -4,6 +4,10 @@ const INITIAL_DATA = {
   title: '',
   link: '',
   content: '',
+  banner_image: '',
+  banner_align_horz: '',
+  banner_align_vert: '',
+  thumbnail_image: '',
   dates: []
 }
 

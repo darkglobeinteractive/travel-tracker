@@ -54,6 +54,14 @@
 }
 #travel-date .tldr {
   margin-top: 20px;
+  border: 1px dashed #333;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.5em;
+}
+#travel-date .tldr .tldr-title {
+  font-weight: 700;
 }
 #travel-date .full-content { }
 
@@ -86,6 +94,7 @@
   }
   #travel-date .tldr {
     margin-top: 10px;
+    padding: 10px;
   }
 
 }

@@ -7,10 +7,14 @@ import Spinner from './Spinner';
 
 class Header extends React.Component {
 
-  renderMenuButton(show_menu_button) {
+  renderMenuButton() {
 
-    if (show_menu_button) {
-      return <MenuButton />
+    if (this.props.load_complete) {
+      if (this.props.active_date) {
+        return <MenuButton />
+      } else {
+        return <></>
+      }
     } else {
       return <Spinner />
     }
@@ -18,14 +22,12 @@ class Header extends React.Component {
 
   render() {
 
-    const show_menu_button = this.props.show_menu_button;
-
     // The menu button will only appear once the travel_dates state object is populated
     return (
       <div id="header">
         <div className="wrap">
           <div className="site-title">0K Travel Tracker</div>
-          {this.renderMenuButton(show_menu_button)}
+          {this.renderMenuButton()}
         </div>
       </div>
     );

@@ -21,6 +21,17 @@ class TravelDate extends React.Component {
     }
   }
 
+  renderTLDR(tldr) {
+    if (tldr !== '') {
+      return (
+        <div className="tldr">
+          <div className="tldr-title">TL;DR</div>
+          <div dangerouslySetInnerHTML={{__html: tldr}} />
+        </div>
+      );
+    } 
+  }
+
   renderVideoGallery(videos_check, videos) {
     if (videos_check) {
       return <TravelDateVideos items={videos} />
@@ -55,7 +66,7 @@ class TravelDate extends React.Component {
             <TravelDateBanner src={banner_img} align={banner_align} />
             <h1 dangerouslySetInnerHTML={{__html: title}} />
             <div className="dates">{dates}</div>
-            <div className="tldr" dangerouslySetInnerHTML={{__html: tldr}} />
+            {this.renderTLDR(tldr)}
             <TravelDateContent content={full_content} />
           </div>
           {this.renderImageGallery(images_check, images)}

@@ -8,8 +8,8 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
   width: 100%;
-  padding: 20px 0;
 }
 #header > .wrap > *:first-child {
   margin-top: 0;
@@ -115,7 +115,7 @@
 
   /* HEADER ------------------------------------------------------- */
   #header > .wrap {
-    padding: 10px 0;
+    
   }
 
 }
