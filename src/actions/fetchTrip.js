@@ -7,7 +7,7 @@ import ZerodegreesK from '../apis/zerodegreesk';
 const fetchTrip = () => async (dispatch, getState) => {
 
   // Fetch trip information
-  const trip = await ZerodegreesK.get('/trip/341',{
+  const trip = await ZerodegreesK.get('/trip/1306',{
     params: {
       _fields: 'acf.header_horizontal_alignment, acf.header_vertical_alignment, acf.travel_dates, banner_image, link, content.rendered, thumbnail_image, title.rendered'
     }
