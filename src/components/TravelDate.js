@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchActiveDate } from '../actions';
+import { fetchActiveDate, selectDate } from '../actions';
 
 import '../css/TravelDate.css';
 import TravelDateBanner from './TravelDateBanner';
@@ -19,6 +19,15 @@ class TravelDate extends React.Component {
     if (images_check) {
       return <TravelDateImages items={images} />
     }
+  }
+
+  renderPrevNext(date_prev, date_next) {
+    return (
+      <nav id="prev-next" aria-label="Previous/Next Date Navigation">
+        {date_prev && <button className="prev" aria-label="View Previous Date" onClick={() => this.props.selectDate(date_prev)}>Previous</button>}
+        {date_next && <button className="next" aria-label="View Next Date" onClick={() => this.props.selectDate(date_next)}>Next</button>}
+      </nav>
+    )
   }
 
   renderTLDR(tldr) {
@@ -64,8 +73,15 @@ class TravelDate extends React.Component {
         <div className="wrap">
           <div className="standard-info">
             <TravelDateBanner src={banner_img} align={banner_align} />
-            <h1 dangerouslySetInnerHTML={{__html: title}} />
-            <div className="dates">{dates}</div>
+            <div className="sub-banner">
+              <div className="date-info">
+                <h1 dangerouslySetInnerHTML={{__html: title}} />
+                <div className="dates">{dates}</div>
+              </div>
+              <div className="prev-next-nav">
+               {this.renderPrevNext(date_prev, date_next)}
+              </div>
+            </div>
             {this.renderTLDR(tldr)}
             <TravelDateContent content={full_content} />
           </div>
@@ -86,4 +102,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchActiveDate })(TravelDate);
+export default connect(mapStateToProps, { fetchActiveDate, selectDate })(TravelDate);
