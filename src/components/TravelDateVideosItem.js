@@ -5,7 +5,8 @@ const TravelDateVideosItem = ({ video }) => {
     <div className="item video-embed">
       <span className="wrap">
         <span className="image">
-          <iframe src={`https://player.vimeo.com/video/${video.id}?color=FFF&title=0&byline=0&portrait=0`} allow="autoplay; fullscreen"></iframe>
+          
+          <iframe src={`https://www.youtube.com/embed/${video.id}?si=NxbU3IsN6BZvDOKK`} title={`Video of ${video.title}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </span>
         <span className="info">
           <span className="title">{video.title}</span>
